@@ -8,14 +8,16 @@ public class Historial {
     private int id;
     private LocalDate fechaEntrada;
     private String detalleRegistro;
+    private int idPaciente;
 
     public Historial() {
     }
 
-    public Historial(int id, LocalDate fechaEntrada, String detalleRegistro) {
+    public Historial(int id, LocalDate fechaEntrada, String detalleRegistro, int idPaciente) {
         this.id = id;
         this.fechaEntrada = fechaEntrada;
         this.detalleRegistro = detalleRegistro;
+        this.idPaciente = idPaciente;
     }
 
     public int getId() {
@@ -41,6 +43,13 @@ public class Historial {
     public void setDetalleRegistro(String detalleRegistro) {
         this.detalleRegistro = detalleRegistro;
     }
-    
-    
+
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+
 }
