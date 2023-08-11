@@ -3,14 +3,14 @@ package centromedico.entidadesdenegocios;
 public class Cama {
     
     private int id;
-    private int IdSala;
+    private int idSala;
 
     public Cama() {
     }
 
     public Cama(int id, int IdSala) {
         this.id = id;
-        this.IdSala = IdSala;
+        this.idSala = IdSala;
     }
 
     public int getId() {
@@ -22,10 +22,10 @@ public class Cama {
     }
 
     public int getIdSala() {
-        return IdSala;
+        return idSala;
     }
 
     public void setIdSala(int IdSala) {
-        this.IdSala = IdSala;
+        this.idSala = IdSala;
     }
 }
