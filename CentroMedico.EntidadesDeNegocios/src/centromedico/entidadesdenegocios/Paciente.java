@@ -10,7 +10,7 @@ public class Paciente {
     private String apellido;
     private LocalDate fechaRegistro;
      private int top_aux;
-     private ArrayList<Historial> historial;
+     private ArrayList<Historial> historiales;
 
     public Paciente() {
     }
@@ -21,7 +21,7 @@ public class Paciente {
         this.apellido = apellido;
         this.fechaRegistro = fechaRegistro;
         this.top_aux = top_aux;
-        this.historial = historial;
+        this.historiales = historial;
     }
 
     public int getId() {
@@ -65,11 +65,11 @@ public class Paciente {
     }
 
     public ArrayList<Historial> getHistorial() {
-        return historial;
+        return historiales;
     }
 
     public void setHistorial(ArrayList<Historial> historial) {
-        this.historial = historial;
+        this.historiales = historial;
     }
 
     
