@@ -3,6 +3,8 @@ package centromedico.entidadesdenegocios;
 import java.time.LocalDate;
 
 public class Usuario {
+
+
     private int id;
     private int idRol;
     private String nombre;
