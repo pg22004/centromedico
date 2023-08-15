@@ -7,7 +7,7 @@ public class Sala {
     private String nombre;
     private int numeroCamas;
     private int top_aux;
-    private ArrayList<Cama> cama;
+    private ArrayList<Cama> camas;
 
     public Sala() {
     }
@@ -17,7 +17,7 @@ public class Sala {
         this.nombre = nombre;
         this.numeroCamas = numeroCamas;
         this.top_aux = top_aux;
-        this.cama = cama;
+        this.camas = cama;
     }
 
     public int getId() {
@@ -53,11 +53,11 @@ public class Sala {
     }
 
     public ArrayList<Cama> getCama() {
-        return cama;
+        return camas;
     }
 
     public void setCama(ArrayList<Cama> cama) {
-        this.cama = cama;
+        this.camas = cama;
     }
 }
 
