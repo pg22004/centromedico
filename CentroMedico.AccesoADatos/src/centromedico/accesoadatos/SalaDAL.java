@@ -126,5 +126,72 @@ static String obtenerCampos() {
         }
         return sala;
     }
+         public static ArrayList<Sala> obtenerTodos() throws Exception {
+        ArrayList<Sala> salas = new ArrayList<>();
+        try (Connection conn = ComunDB.obtenerConexion();) {
+            String sql = obtenerSelect(new Sala());
+            sql += agregarOrderBy(new Sala());
+            try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
+                obtenerDatos(ps, salas);
+                ps.close();
+            } catch (SQLException ex) {
+                throw ex;
+            }
+            conn.close();
+        } 
+        catch (SQLException ex) {
+            throw ex;
+        }
+        return salas;
+    }
+         static void querySelect(Sala pSala, ComunDB.utilQuery pUtilQuery) throws SQLException {
+        PreparedStatement statement = pUtilQuery.getStatement();
+        if (pSala.getId() > 0) {
+            pUtilQuery.AgregarNumWhere(" s.Id=? ");
+            if (statement != null) { 
+                statement.setInt(pUtilQuery.getNumWhere(), pSala.getId()); 
+            }
+        }
+
+        if (pSala.getNombre() != null && pSala.getNombre().trim().isEmpty() == false) {
+            pUtilQuery.AgregarNumWhere(" s.Nombre LIKE ? "); 
+            if (statement != null) {
+                statement.setString(pUtilQuery.getNumWhere(), "%" + pSala.getNombre() + "%"); 
+            }
+        }
+        
+         if (pSala.getNumeroCamas() > 0) {
+            pUtilQuery.AgregarNumWhere(" s.NumeroCamas=?"); 
+            if (statement != null) {
+                statement.setInt(pUtilQuery.getNumWhere(), pSala.getNumeroCamas()); 
+            }
+        }
+     }
+          public static ArrayList<Sala> buscar(Sala pSala) throws Exception {
+        ArrayList<Sala> contactos = new ArrayList();
+        try (Connection conn = ComunDB.obtenerConexion();) {
+            String sql = obtenerSelect(pSala);
+            ComunDB comundb = new ComunDB();
+            ComunDB.utilQuery utilQuery = comundb.new utilQuery(sql, null, 0); 
+            querySelect(pSala, utilQuery);
+            sql = utilQuery.getSQL(); 
+            sql += agregarOrderBy(pSala);
+            try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
+                utilQuery.setStatement(ps);
+                utilQuery.setSQL(null);
+                utilQuery.setNumWhere(0); 
+                querySelect(pSala, utilQuery);
+                obtenerDatos(ps, contactos);
+                ps.close();
+            } catch (SQLException ex) {
+                throw ex;
+            }
+            conn.close();
+        }
+        catch (SQLException ex) {
+            throw ex;
+        }
+        return contactos;
+       }
     }
 
