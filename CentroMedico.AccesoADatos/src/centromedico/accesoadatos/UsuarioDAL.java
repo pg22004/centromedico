@@ -4,7 +4,6 @@ package centromedico.accesoadatos;
 import java.util.*;
 import java.sql.*;
 import centromedico.entidadesdenegocios.*;
-import static centromedico.entidadesdenegocios.Usuario.EstatusUsuario.ACTIVO;
 import java.time.LocalDate;
 
 
