@@ -103,12 +103,12 @@ public class HistorialDAL {
         return pIndex;
     }
     
-    private static void obtenerDatos(PreparedStatement pPS, ArrayList<Historial> pContactos) throws Exception {
+    private static void obtenerDatos(PreparedStatement pPS, ArrayList<Historial> pHistorial) throws Exception {
         try (ResultSet resultSet = ComunDB.obtenerResultSet(pPS);) {
             while (resultSet.next()) {
-                Historial contacto = new Historial(); 
-                asignarDatosResultSet(contacto, resultSet, 0);
-                pContactos.add(contacto);
+                Historial historial = new Historial(); 
+                asignarDatosResultSet(historial, resultSet, 0);
+                pHistorial.add(historial);
             }
             resultSet.close();
         } catch (SQLException ex) {
@@ -116,15 +116,37 @@ public class HistorialDAL {
         }
     }
     
+   private static void obtenerDatosIncluirPaciente(PreparedStatement pPS, ArrayList<Historial> pHistoriales) throws Exception {
+        try (ResultSet resultSet = ComunDB.obtenerResultSet(pPS);) {
+            HashMap<Integer, Paciente> pacienteMap = new HashMap(); 
+            while (resultSet.next()) {
+                Historial historial = new Historial();
+                int index = asignarDatosResultSet(historial, resultSet, 0);
+                if (pacienteMap.containsKey(historial.getIdPaciente()) == false) {
+                    Paciente paciente = new Paciente();
+                    PacienteDAL.asignarDatosResultSet(paciente, resultSet, index);
+                    pacienteMap.put(paciente.getId(), paciente); 
+                    historial.setPaciente(paciente); 
+                } else {
+                    historial.setPaciente(pacienteMap.get(historial.getIdPaciente())); 
+                }
+                pHistoriales.add(historial); 
+            }
+            resultSet.close();
+        } catch (SQLException ex) {
+            throw ex; 
+        }
+    }
+    
     public static Historial obtenerPorId(Historial pHistorial) throws Exception {
-        Historial contacto = new Historial();
-        ArrayList<Historial> historial = new ArrayList();
+        Historial historial = new Historial();
+        ArrayList<Historial> historiales = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) { 
             String sql = obtenerSelect(pHistorial);
-            sql += " WHERE c.Id=?";
+            sql += " WHERE h.Id=?";
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 ps.setInt(1, pHistorial.getId());
-                obtenerDatos(ps, historial);
+                obtenerDatos(ps, historiales);
                 ps.close();
             } catch (SQLException ex) {
                 throw ex;
@@ -134,19 +156,19 @@ public class HistorialDAL {
         catch (SQLException ex) {
             throw ex;
         }
-        if (historial.size() > 0) {
-            contacto = historial.get(0);
+        if (historiales.size() > 0) {
+            historial = historiales.get(0);
         }
-        return contacto;
+        return historial;
     }
     
     public static ArrayList<Historial> obtenerTodos() throws Exception {
-        ArrayList<Historial> contactos = new ArrayList<>();
+        ArrayList<Historial> historiales = new ArrayList<>();
         try (Connection conn = ComunDB.obtenerConexion();) {
             String sql = obtenerSelect(new Historial());
             sql += agregarOrderBy(new Historial());
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
-                obtenerDatos(ps, contactos);
+                obtenerDatos(ps, historiales);
                 ps.close();
             } catch (SQLException ex) {
                 throw ex;
@@ -156,62 +178,56 @@ public class HistorialDAL {
         catch (SQLException ex) {
             throw ex;
         }
-        return contactos;
+        return historiales;
     }
     
-    static void querySelect(Contacto pContacto, ComunDB.utilQuery pUtilQuery) throws SQLException {
+    static void querySelect(Historial pHistorial, ComunDB.utilQuery pUtilQuery) throws SQLException {
         PreparedStatement statement = pUtilQuery.getStatement();
-        if (pContacto.getId() > 0) {
-            pUtilQuery.AgregarNumWhere(" c.Id=? ");
+        if (pHistorial.getId() > 0) {
+            pUtilQuery.AgregarNumWhere(" h.Id=? ");
             if (statement != null) { 
-                statement.setInt(pUtilQuery.getNumWhere(), pContacto.getId()); 
+                statement.setInt(pUtilQuery.getNumWhere(), pHistorial.getId()); 
+            }
+        }
+        
+         if (pHistorial.getIdPaciente() > 0) {
+            pUtilQuery.AgregarNumWhere(" u.IdPaciente=? ");
+            if (statement != null) {
+                statement.setInt(pUtilQuery.getNumWhere(), pHistorial.getIdPaciente());
             }
         }
 
-        if (pContacto.getNombre() != null && pContacto.getNombre().trim().isEmpty() == false) {
-            pUtilQuery.AgregarNumWhere(" c.Nombre LIKE ? "); 
+//        if (pHistorial.getFechaEntrada() != null && pHistorial.getFechaEntrada().trim().isEmpty() == false) {
+//            pUtilQuery.AgregarNumWhere(" h.FechaEntrada LIKE ? "); 
+//            if (statement != null) {
+//                statement.setString(pUtilQuery.getNumWhere(), "%" + pHistorial.getFechaEntrada() + "%"); 
+//            }
+//        }
+        
+        if (pHistorial.getDetalleRegistro()!= null && pHistorial.getDetalleRegistro().trim().isEmpty() == false) {
+            pUtilQuery.AgregarNumWhere(" h.DetalleRegistro LIKE ? "); 
             if (statement != null) {
-                statement.setString(pUtilQuery.getNumWhere(), "%" + pContacto.getNombre() + "%"); 
+                statement.setString(pUtilQuery.getNumWhere(), "%" + pHistorial.getDetalleRegistro()+ "%"); 
             }
         }
         
-        if (pContacto.getEmail()!= null && pContacto.getEmail().trim().isEmpty() == false) {
-            pUtilQuery.AgregarNumWhere(" c.Email LIKE ? "); 
-            if (statement != null) {
-                statement.setString(pUtilQuery.getNumWhere(), "%" + pContacto.getEmail()+ "%"); 
-            }
-        }
-        
-        if (pContacto.getTelefono()!= null && pContacto.getTelefono().trim().isEmpty() == false) {
-            pUtilQuery.AgregarNumWhere(" c.Telefono LIKE ? "); 
-            if (statement != null) {
-                statement.setString(pUtilQuery.getNumWhere(), "%" + pContacto.getTelefono()+ "%"); 
-            }
-        }
-        
-        if (pContacto.getCelular()!= null && pContacto.getCelular().trim().isEmpty() == false) {
-            pUtilQuery.AgregarNumWhere(" c.Celular LIKE ? "); 
-            if (statement != null) {
-                statement.setString(pUtilQuery.getNumWhere(), "%" + pContacto.getCelular()+ "%"); 
-            }
-        }
     }
     
-    public static ArrayList<Contacto> buscar(Contacto pContacto) throws Exception {
-        ArrayList<Contacto> contactos = new ArrayList();
+    public static ArrayList<Historial> buscar(Historial pHistorial) throws Exception {
+        ArrayList<Historial> historiales = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) {
-            String sql = obtenerSelect(pContacto);
+            String sql = obtenerSelect(pHistorial);
             ComunDB comundb = new ComunDB();
             ComunDB.utilQuery utilQuery = comundb.new utilQuery(sql, null, 0); 
-            querySelect(pContacto, utilQuery);
+            querySelect(pHistorial, utilQuery);
             sql = utilQuery.getSQL(); 
-            sql += agregarOrderBy(pContacto);
+            sql += agregarOrderBy(pHistorial);
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 utilQuery.setStatement(ps);
                 utilQuery.setSQL(null);
                 utilQuery.setNumWhere(0); 
-                querySelect(pContacto, utilQuery);
-                obtenerDatos(ps, contactos);
+                querySelect(pHistorial, utilQuery);
+                obtenerDatos(ps, historiales);
                 ps.close();
             } catch (SQLException ex) {
                 throw ex;
@@ -221,7 +237,40 @@ public class HistorialDAL {
         catch (SQLException ex) {
             throw ex;
         }
-        return contactos;
+        return historiales;
     }
-
+    
+     public static ArrayList<Historial> buscarIncluirPaciente(Historial pHistorial) throws Exception {
+        ArrayList<Historial> historiales = new ArrayList();
+        try (Connection conn = ComunDB.obtenerConexion();) {
+            String sql = "SELECT ";
+            if (pHistorial.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.SQLSERVER) {
+                sql += "TOP " + pHistorial.getTop_aux() + " "; 
+            }
+            sql += obtenerCampos();
+            sql += ",";
+            sql += PacienteDAL.obtenerCampos();
+            sql += " FROM Historial h";
+            sql += " JOIN Paciente p on (h.IdPaciente=p.Id)";
+            ComunDB comundb = new ComunDB();
+            ComunDB.utilQuery utilQuery = comundb.new utilQuery(sql, null, 0);
+            querySelect(pHistorial, utilQuery);
+            sql = utilQuery.getSQL();
+            sql += agregarOrderBy(pHistorial);
+            try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
+                utilQuery.setStatement(ps);
+                utilQuery.setSQL(null);
+                utilQuery.setNumWhere(0);
+                querySelect(pHistorial, utilQuery);
+                obtenerDatosIncluirPaciente(ps, historiales);
+                ps.close();
+            } catch (SQLException ex) {
+                throw ex;
+            }
+            conn.close();
+        } catch (SQLException ex) {
+            throw ex;
+        }
+        return historiales;
+    }
 }
