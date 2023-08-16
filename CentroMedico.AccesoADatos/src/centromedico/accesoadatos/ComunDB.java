@@ -11,7 +11,7 @@ public class ComunDB {
     
     static int TIPODB = TipoDB.SQLSERVER;
     
-    static String connectionUrlSqlServer = "jdbc:sqlserver://workstation id=CentroMedicoDB.mssql.somee.com;packet size=4096;user id=IMECS;pwd=CentroMedico1234;data source=CentroMedicoDB.mssql.somee.com;persist security info=False;initial catalog=CentroMedicoDB;"
+    static String connectionUrlSqlServer = "jdbc:sqlserver://CentroMedicoDB.mssql.somee.com;"
             + "database=CentroMedicoDB;"
             + "user=IMECS;"
             + "password=CentroMedico1234;"
