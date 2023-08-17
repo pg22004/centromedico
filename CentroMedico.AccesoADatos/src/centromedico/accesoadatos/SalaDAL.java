@@ -6,7 +6,7 @@ import centromedico.entidadesdenegocios.*;
 
 public class SalaDAL{
 static String obtenerCampos() {
-        return "s.Id, s.nombre, s.numeroCamas,";
+        return "s.Id, s.Nombre, s.NumeroCamas";
     }
     private static String obtenerSelect(Sala pSala) {
         String sql;
@@ -168,7 +168,7 @@ static String obtenerCampos() {
         }
      }
           public static ArrayList<Sala> buscar(Sala pSala) throws Exception {
-        ArrayList<Sala> contactos = new ArrayList();
+        ArrayList<Sala> salas = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) {
             String sql = obtenerSelect(pSala);
             ComunDB comundb = new ComunDB();
@@ -181,7 +181,7 @@ static String obtenerCampos() {
                 utilQuery.setSQL(null);
                 utilQuery.setNumWhere(0); 
                 querySelect(pSala, utilQuery);
-                obtenerDatos(ps, contactos);
+                obtenerDatos(ps, salas);
                 ps.close();
             } catch (SQLException ex) {
                 throw ex;
@@ -191,7 +191,7 @@ static String obtenerCampos() {
         catch (SQLException ex) {
             throw ex;
         }
-        return contactos;
+        return salas;
        }
     }
 
