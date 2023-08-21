@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-public class utilidad {
+public class Utilidad {
     
     public static String getParameter(HttpServletRequest request, String pKey, String pDefault) {
         String result = "";
