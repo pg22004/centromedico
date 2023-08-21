@@ -5,9 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 public class Utilidad {
-    
     public static String getParameter(HttpServletRequest request, String pKey, String pDefault) {
         String result = "";
         String value = request.getParameter(pKey);
@@ -27,5 +25,4 @@ public class Utilidad {
     public static String obtenerRuta(HttpServletRequest request, String pStrRuta) {
         return request.getContextPath() + pStrRuta;
     }
-    
 }
