@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="centromedico.entidadesdenegocios.Paciente"%>
-<%@page import="centromedico.entidadesdenegocios.PacienteDAL"%>
+<%@page import="centromedico.accesoadatos.PacienteDAL"%>
 <%@page import="java.util.ArrayList"%>
 
 <% ArrayList<Paciente> pacientes = PacienteDAL.obtenerTodos();
