@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import centromedico.accesoadatos.PacienteDAL;
 import centromedico.entidadesdenegocios.Paciente;
 import centromedico.appweb.utils.*;
-import java.time.LocalDate;
+
 
 
 @WebServlet(name = "PacienteServlet", urlPatterns = {"/Paciente"})
@@ -26,7 +26,6 @@ public class PacienteServlet extends HttpServlet {
 
         paciente.setNombre(Utilidad.getParameter(request, "nombre", ""));
         paciente.setApellido(Utilidad.getParameter(request, "apellido", ""));
-        paciente.setFechaRegistro(LocalDate.parse(Utilidad.getParameter(request, "fechaRegistro", "")));
 
         
         if (accion.equals("index")) {
