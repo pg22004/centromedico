@@ -12,7 +12,7 @@
             <li><a href="Cama">Cama</a></li>
             <li><a href="Sala">Sala</a></li>
             <li><a href="Paciente">Paciente</a></li>
-            <li><a href="Hitorial">Hitorial</a></li>
+            <li><a href="Historial">Historial</a></li>
             <li><a href="Usuario">Usuarios</a></li>
             <li><a href="Rol">Roles</a></li>
             <li><a href="Usuario?accion=cambiarpass">Cambiar password</a></li>
@@ -28,7 +28,7 @@
      <li><a href="Cama">Cama</a></li>
      <li><a href="Sala">Sala</a></li>
      <li><a href="Paciente">Paciente</a></li>
-     <li><a href="Hitorial">Hitorial</a></li>
+     <li><a href="Historial">Historial</a></li>
      <li><a href="Usuario">Usuarios</a></li>
      <li><a href="Rol">Roles</a></li>
      <li><a href="Usuario?accion=cambiarpass">Cambiar Contraseña</a></li>
