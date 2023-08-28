@@ -25,10 +25,7 @@
                         <input disabled  id="txtApellido" type="text" value="<%=paciente.getApellido()%>">
                         <label for="txtApellido">Apellido</label>
                     </div>
-                    <div class="input-field col l4 s12">
-                        <input disabled  id="txtFechaRegistro" type="date" value="<%=paciente.getFechaRegistro()%>">
-                        <label for="txtFechaRegistro">Fecha registro</label>
-                    </div>
+                   
                 </div>
                 <div class="row">
                     <div class="col l12 s12">

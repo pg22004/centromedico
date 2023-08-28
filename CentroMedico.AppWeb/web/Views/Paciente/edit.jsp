@@ -25,10 +25,8 @@
                         <input  id="txtApellido" type="text" name="apellido" value="<%=paciente.getApellido()%>" required class="validate" maxlength="100">
                         <label for="txtApellido">Apellido</label>
                     </div>
-                    <div class="input-field col l4 s12">
-                        <input  id="txtFechaRegistro" type="date" name="fechaRegistro" value="<%=paciente.getFechaRegistro()%>" required class="validate" maxlength="15">
-                        <label for="txtFechaRegistro">FechaRegistro</label>
-                    </div>
+                     
+                    
                 </div>
                 <div class="row">
                     <div class="col l12 s12">

@@ -40,10 +40,7 @@
                         <input  id="txtApellido" type="text" name="apellido">
                         <label for="txtApellido">Apellido</label>
                     </div>
-                    <div class="input-field col l6 s12">
-                        <input  id="txtFechaRegistro" type="date" name="fechaRegistro">
-                        <label for="txtFechaRegistro">Fecha de registro</label>
-                    </div>                 
+                  
                     <div class="input-field col l3 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
                             <jsp:param name="top_aux" value="<%=top_aux%>" />                        
