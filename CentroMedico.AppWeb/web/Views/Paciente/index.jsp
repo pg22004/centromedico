@@ -84,7 +84,7 @@
                                     <td><%=paciente.getApellido()%></td>
                                     <td><%=paciente.getFechaRegistro()%></td>
                                     <td>
-                                        <div style="display:flex">
+                                         <div style="display:flex">
                                             <a href="Paciente?accion=edit&id=<%=paciente.getId()%>" title="Modificar" class="waves-effect waves-light btn green">
                                                 <i class="material-icons">edit</i>
                                             </a>

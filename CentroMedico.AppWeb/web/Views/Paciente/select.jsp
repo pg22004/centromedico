@@ -1,11 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@page import="centromedico.entidadesdenegocios.Paciente"%>
+<%@page import="centromedico.entidadesdenegocios.PacienteDAL"%>
+<%@page import="java.util.ArrayList"%>
+
+<% ArrayList<Paciente> pacientes = PacienteDAL.obtenerTodos();
+    int id = Integer.parseInt(request.getParameter("id"));
+%>
+<select id="slPaciente" name="idPaciente">
+    <option <%=(id == 0) ? "selected" : ""%>  value="0">SELECCIONAR</option>
+    <% for (Paciente paciente : pacientes) {%>
+        <option <%=(id == paciente.getId()) ? "selected" : "" %>  value="<%=paciente.getId()%>"><%= paciente.getNombre()%>
+            <%= paciente.getApellido()%><%= paciente.getFechaRegistro()%></option>
+    <%}%>
+</select>
+<label for="idPaciente">Paciente</label>
