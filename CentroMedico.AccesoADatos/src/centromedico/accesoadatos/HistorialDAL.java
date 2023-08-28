@@ -17,12 +17,12 @@ public class HistorialDAL {
         if (pHistorial.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.SQLSERVER) {            
             sql += "TOP " + pHistorial.getTop_aux() + " ";
         }
-        sql += (obtenerCampos() + " FROM Contacto c");
+        sql += (obtenerCampos() + " FROM Historial h");
         return sql;
     }
     
     private static String agregarOrderBy(Historial pHistorial) {
-        String sql = " ORDER BY c.Id DESC";
+        String sql = " ORDER BY h.Id DESC";
         if (pHistorial.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.MYSQL) {
             sql += " LIMIT " + pHistorial.getTop_aux() + " ";
         }
