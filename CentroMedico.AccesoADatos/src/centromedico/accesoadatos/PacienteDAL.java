@@ -54,12 +54,12 @@ public class PacienteDAL {
         int result;
         String sql;
         try (Connection conn = ComunDB.obtenerConexion();) {
-            sql = "UPDATE Paciente SET Nombre=?, Apellido = ?, FechaRegistro = ? WHERE Id=?";
+            sql = "UPDATE Paciente SET Nombre=?, Apellido = ? WHERE Id=?";
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 ps.setString(1, pPaciente.getNombre());
                 ps.setString(2, pPaciente.getApellido());
-                ps.setDate(3, java.sql.Date.valueOf(LocalDate.now()));
-                ps.setInt(4, pPaciente.getId());
+                
+                ps.setInt(3, pPaciente.getId());
                 result = ps.executeUpdate();
                 ps.close();
             } catch (SQLException ex) {
