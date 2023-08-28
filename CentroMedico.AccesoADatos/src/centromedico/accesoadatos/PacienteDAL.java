@@ -6,8 +6,9 @@ import centromedico.entidadesdenegocios.*;
 import java.time.LocalDate;
 
 public class PacienteDAL {
+  
     static String obtenerCampos() {
-        return "p.Id, p.Nombre, p.Apellido, p.FechaRegistro";
+        return "pa.Id, pa.Nombre, pa.Apellido, pa.FechaRegistro";
     }
     
     private static String obtenerSelect(Paciente pPaciente) {
@@ -16,19 +17,19 @@ public class PacienteDAL {
         if (pPaciente.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.SQLSERVER) {            
             sql += "TOP " + pPaciente.getTop_aux() + " ";
         }
-        sql += (obtenerCampos() + " FROM Paciente p");
+        sql += (obtenerCampos() + " FROM Paciente pa");
         return sql;
     }
     
-     private static String agregarOrderBy(Paciente pPaciente) {
-        String sql = " ORDER BY p.Id DESC";
+    private static String agregarOrderBy(Paciente pPaciente) {
+        String sql = " ORDER BY pa.Id DESC";
         if (pPaciente.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.MYSQL) {
             sql += " LIMIT " + pPaciente.getTop_aux() + " ";
         }
         return sql;
     }
-  
-      public static int crear(Paciente pPaciente) throws Exception {
+    
+    public static int crear(Paciente pPaciente) throws Exception {
         int result;
         String sql;
         try (Connection conn = ComunDB.obtenerConexion();) { 
@@ -48,8 +49,8 @@ public class PacienteDAL {
         }
         return result;
     }
-       
-        public static int modificar(Paciente pPaciente) throws Exception {
+    
+    public static int modificar(Paciente pPaciente) throws Exception {
         int result;
         String sql;
         try (Connection conn = ComunDB.obtenerConexion();) {
@@ -70,8 +71,8 @@ public class PacienteDAL {
         }
         return result;
     }
-        
-        public static int eliminar(Paciente pPaciente) throws Exception {
+    
+    public static int eliminar(Paciente pPaciente) throws Exception {
         int result;
         String sql;
         try (Connection conn = ComunDB.obtenerConexion();) {
@@ -89,7 +90,8 @@ public class PacienteDAL {
         }
         return result;
     }
-         static int asignarDatosResultSet(Paciente pPaciente, ResultSet pResultSet, int pIndex) throws Exception {
+    
+    static int asignarDatosResultSet(Paciente pPaciente, ResultSet pResultSet, int pIndex) throws Exception {
         pIndex++;
         pPaciente.setId(pResultSet.getInt(pIndex));
         pIndex++;
@@ -100,26 +102,26 @@ public class PacienteDAL {
         pPaciente.setFechaRegistro(pResultSet.getDate(pIndex).toLocalDate()); 
         return pIndex;
     }
-         
-        private static void obtenerDatos(PreparedStatement pPS, ArrayList<Paciente> pPaciente) throws Exception {
+    
+    private static void obtenerDatos(PreparedStatement pPS, ArrayList<Paciente> pPacientes) throws Exception {
         try (ResultSet resultSet = ComunDB.obtenerResultSet(pPS);) {
             while (resultSet.next()) {
                 Paciente paciente = new Paciente(); 
                 asignarDatosResultSet(paciente, resultSet, 0);
-                pPaciente.add(paciente);
+                pPacientes.add(paciente);
             }
             resultSet.close();
         } catch (SQLException ex) {
             throw ex;
         }
     }
-        
-        public static Paciente obtenerPorId(Paciente pPaciente) throws Exception {
+    
+    public static Paciente obtenerPorId(Paciente pPaciente) throws Exception {
         Paciente paciente = new Paciente();
         ArrayList<Paciente> pacientes = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) { 
             String sql = obtenerSelect(pPaciente);
-            sql += " WHERE p.Id=?";
+            sql += " WHERE pa.Id=?";
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 ps.setInt(1, pPaciente.getId());
                 obtenerDatos(ps, pacientes);
@@ -137,8 +139,8 @@ public class PacienteDAL {
         }
         return paciente;
     }
-        
-        public static ArrayList<Paciente> obtenerTodos() throws Exception {
+    
+    public static ArrayList<Paciente> obtenerTodos() throws Exception {
         ArrayList<Paciente> pacientes = new ArrayList<>();
         try (Connection conn = ComunDB.obtenerConexion();) {
             String sql = obtenerSelect(new Paciente());
@@ -156,40 +158,40 @@ public class PacienteDAL {
         }
         return pacientes;
     }
-        
-        static void querySelect(Paciente pPaciente, ComunDB.utilQuery pUtilQuery) throws SQLException {
+    
+    static void querySelect(Paciente pPaciente, ComunDB.utilQuery pUtilQuery) throws SQLException {
         PreparedStatement statement = pUtilQuery.getStatement();
         if (pPaciente.getId() > 0) {
-            pUtilQuery.AgregarNumWhere(" p.Id=? ");
+            pUtilQuery.AgregarNumWhere(" pa.Id=? ");
             if (statement != null) { 
                 statement.setInt(pUtilQuery.getNumWhere(), pPaciente.getId()); 
             }
         }
 
         if (pPaciente.getNombre() != null && pPaciente.getNombre().trim().isEmpty() == false) {
-            pUtilQuery.AgregarNumWhere(" p.Nombre LIKE ? "); 
+            pUtilQuery.AgregarNumWhere(" pa.Nombre LIKE ? "); 
             if (statement != null) {
                 statement.setString(pUtilQuery.getNumWhere(), "%" + pPaciente.getNombre() + "%"); 
             }
         }
         
         if (pPaciente.getApellido()!= null && pPaciente.getApellido().trim().isEmpty() == false) {
-            pUtilQuery.AgregarNumWhere(" p.Apellido LIKE ? "); 
+            pUtilQuery.AgregarNumWhere(" pa.Apellido LIKE ? "); 
             if (statement != null) {
                 statement.setString(pUtilQuery.getNumWhere(), "%" + pPaciente.getApellido()+ "%"); 
             }
         }
         
-//        if (pPaciente.getFechaRegistro()!= null && pPaciente.getFechaRegistro().trim().isEmpty() == false) {
+//       if (pPaciente.getFechaRegistro()!= null && pPaciente.getFechaRegistro().trim().isEmpty() == false) {
 //            pUtilQuery.AgregarNumWhere(" p.FechaRegistro LIKE ? "); 
 //            if (statement != null) {
 //                statement.setString(pUtilQuery.getNumWhere(), "%" + pPaciente.getFechaRegistro()+ "%"); 
 //            }
 //        }
-              
-    }
         
-        public static ArrayList<Paciente> buscar(Paciente pPaciente) throws Exception {
+    }
+    
+    public static ArrayList<Paciente> buscar(Paciente pPaciente) throws Exception {
         ArrayList<Paciente> pacientes = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) {
             String sql = obtenerSelect(pPaciente);
@@ -215,4 +217,5 @@ public class PacienteDAL {
         }
         return pacientes;
     }
+    
 }
