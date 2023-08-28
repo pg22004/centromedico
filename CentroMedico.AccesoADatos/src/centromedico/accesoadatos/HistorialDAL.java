@@ -191,7 +191,7 @@ public class HistorialDAL {
         }
         
          if (pHistorial.getIdPaciente() > 0) {
-            pUtilQuery.AgregarNumWhere(" u.IdPaciente=? ");
+            pUtilQuery.AgregarNumWhere(" h.IdPaciente=? ");
             if (statement != null) {
                 statement.setInt(pUtilQuery.getNumWhere(), pHistorial.getIdPaciente());
             }
