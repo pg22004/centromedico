@@ -226,7 +226,7 @@ public class CamaDAL {
             sql += obtenerCampos();
             sql += ",";
             sql += SalaDAL.obtenerCampos();
-            sql += " FROM Empresa ca";
+            sql += " FROM Cama ca";
             sql += " JOIN Sala s on (ca.IdSala=s.Id)";
             ComunDB comundb = new ComunDB();
             ComunDB.utilQuery utilQuery = comundb.new utilQuery(sql, null, 0);
