@@ -16,12 +16,6 @@
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <input type="hidden" name="id" value="<%=cama.getId()%>">  
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtIdSala" type="text" name="IdSala" value="<%=cama.getIdSala()%>" required class="validate" maxlength="50">
-                        <label for="txtIdSala">IdSala</label>
-                    </div>                       
-                    
-                    
                     <div class="input-field col l4 s12">   
                         <jsp:include page="/Views/Sala/select.jsp">                           
                             <jsp:param name="id" value="<%=cama.getIdSala() %>" />  
