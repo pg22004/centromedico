@@ -46,7 +46,7 @@
                 var slSala= document.getElementById("slSala");
                 var slSala_error = document.getElementById("slSala_error");
                 if (slSala.value == 0) {
-                    slSala_error.innerHTML = "El Sala es obligatorio";
+                    slSala_error.innerHTML = "La Sala es obligatoria";
                     result = false;
                 } else {
                     slSala_error.innerHTML = "";

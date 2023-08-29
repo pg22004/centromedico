@@ -24,24 +24,18 @@
 <html>
     <head>
         <jsp:include page="/Views/Shared/title.jsp" />
-        <title>Lista de Camas</title>
+        <title>Lista de camas</title>
     </head>
     <body>
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
         <main class="container">   
-            <h5>Buscar Cama</h5>
+            <h5>Buscar Camas</h5>
             <form action="Cama" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <div class="row">
                     <div class="input-field col l4 s12">
-                        <input  id="txtidSala" type="text" name="idSala">
-                        <label for="txtidSala">idSala</label>
-                    </div>  
-                  
-                    <div class="input-field col l4 s12">   
-                        <jsp:include page="/Views/Sala/select.jsp">                           
-                            <jsp:param name="id" value="0" />  
-                        </jsp:include>                        
+                        <input  id="txtIdSala" type="number" name="idSala">
+                        <label for="txtIdSala">Id Sala</label>
                     </div>
                     <div class="input-field col l4 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
@@ -63,7 +57,7 @@
                         <table class="paginationjs">
                             <thead>
                                 <tr>                                     
-                                    <th>IdSala</th>  
+                                    <th>Id Sala</th>  
                                 </tr>
                             </thead>                       
                             <tbody>                           
@@ -76,7 +70,7 @@
                                         }
                                 %>
                                 <tr data-page="<%= tempNumPage%>">                                    
-                                    <td><%=cama.getidSala()%></td>    
+                                    <td><%=cama.getIdSala()%></td>  
                                     <td>
                                         <div style="display:flex">
                                              <a href="Cama?accion=edit&id=<%=cama.getId()%>" title="Modificar" class="waves-effect waves-light btn green">
@@ -108,4 +102,3 @@
         <jsp:include page="/Views/Shared/footerBody.jsp" />
     </body>
 </html>
-

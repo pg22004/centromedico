@@ -16,7 +16,7 @@ public class CamaDAL {
         if (pCama.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.SQLSERVER) {            
             sql += "TOP " + pCama.getTop_aux() + " ";
         }
-        sql += (obtenerCampos() + " FROM Contacto ca");
+        sql += (obtenerCampos() + " FROM Cama ca");
         return sql;
     }
     
