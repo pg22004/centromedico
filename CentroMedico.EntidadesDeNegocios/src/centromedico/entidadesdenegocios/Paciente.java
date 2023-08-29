@@ -9,19 +9,21 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private LocalDate fechaRegistro;
-     private int top_aux;
-     private ArrayList<Historial> historiales;
+    private int top_aux;
+    private ArrayList<Historial> historiales;
+    private ArrayList<PacienteSala> pacienteSalas;
 
     public Paciente() {
     }
 
-    public Paciente(int id, String nombre, String apellido, LocalDate fechaRegistro, int top_aux, ArrayList<Historial> historial) {
+    public Paciente(int id, String nombre, String apellido, LocalDate fechaRegistro, int top_aux, ArrayList<Historial> historiales, ArrayList<PacienteSala> pacienteSalas) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaRegistro = fechaRegistro;
         this.top_aux = top_aux;
-        this.historiales = historial;
+        this.historiales = historiales;
+        this.pacienteSalas = pacienteSalas;
     }
 
     public int getId() {
@@ -64,12 +66,20 @@ public class Paciente {
         this.top_aux = top_aux;
     }
 
-    public ArrayList<Historial> getHistorial() {
+    public ArrayList<Historial> getHistoriales() {
         return historiales;
     }
 
-    public void setHistorial(ArrayList<Historial> historial) {
-        this.historiales = historial;
+    public void setHistoriales(ArrayList<Historial> historiales) {
+        this.historiales = historiales;
+    }
+
+    public ArrayList<PacienteSala> getPacienteSalas() {
+        return pacienteSalas;
+    }
+
+    public void setPacienteSalas(ArrayList<PacienteSala> pacienteSalas) {
+        this.pacienteSalas = pacienteSalas;
     }
 
     
