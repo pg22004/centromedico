@@ -18,11 +18,6 @@
                         <input  id="txtIdSala" type="text" value="<%=cama.getIdSala()%>" disabled>
                         <label for="txtIdSala">IdSala</label>
                     </div>                       
-                    
-                    <div class="input-field col l4 s12">
-                        <input id="txtSala" type="text" value="<%=cama.getSala().getIdSala()%>" disabled>
-                        <label for="txtSala"></label>
-                    </div> 
                 </div>
 
                 <div class="row">

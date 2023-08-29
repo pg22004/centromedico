@@ -22,7 +22,7 @@
                         <label for="txtNombre">Nombre</label>
                     </div> 
                         <div class="input-field col l4 s12">
-                        <input  id="txtNumeroCamas" type="number" name="numeroCamas" value="<%=sala.getNombre()%>" required class="validate" maxlength="30">
+                        <input  id="txtNumeroCamas" type="number" name="numeroCamas" value="<%=sala.getNumeroCamas()%>" required class="validate" maxlength="30">
                         <label for="txtNumeroCamas">NumeroCamas</label>
                     </div>   
                 </div>

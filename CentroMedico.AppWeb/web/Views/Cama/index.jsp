@@ -33,9 +33,10 @@
             <form action="Cama" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtIdSala" type="number" name="idSala">
-                        <label for="txtIdSala">Id Sala</label>
+                    <div class="input-field col l4 s12">   
+                        <jsp:include page="/Views/Sala/select.jsp">                           
+                            <jsp:param name="id" value="0" />  
+                        </jsp:include>                        
                     </div>
                     <div class="input-field col l4 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
