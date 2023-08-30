@@ -6,18 +6,20 @@ public class PacienteSala {
      private int id;
      private int idPaciente;
      private int idSala;
-     private LocalDate fechaEntrada;
+     private LocalDate fecha;
+     private int top_aux;
      private Paciente paciente;
      private Sala sala;
 
     public PacienteSala() {
     }
 
-    public PacienteSala(int id, int idPaciente, int idSala, LocalDate fechaEntrada, Paciente paciente, Sala sala) {
+    public PacienteSala(int id, int idPaciente, int idSala, LocalDate fecha, int top_aux, Paciente paciente, Sala sala) {
         this.id = id;
         this.idPaciente = idPaciente;
         this.idSala = idSala;
-        this.fechaEntrada = fechaEntrada;
+        this.fecha = fecha;
+        this.top_aux = top_aux;
         this.paciente = paciente;
         this.sala = sala;
     }
@@ -46,12 +48,20 @@ public class PacienteSala {
         this.idSala = idSala;
     }
 
-    public LocalDate getFechaEntrada() {
-        return fechaEntrada;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setFechaEntrada(LocalDate fechaEntrada) {
-        this.fechaEntrada = fechaEntrada;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getTop_aux() {
+        return top_aux;
+    }
+
+    public void setTop_aux(int top_aux) {
+        this.top_aux = top_aux;
     }
 
     public Paciente getPaciente() {
@@ -69,6 +79,7 @@ public class PacienteSala {
     public void setSala(Sala sala) {
         this.sala = sala;
     }
-     
-     
+
+    
+    
 }
