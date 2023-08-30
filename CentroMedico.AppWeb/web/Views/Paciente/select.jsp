@@ -9,8 +9,7 @@
 <select id="slPaciente" name="idPaciente">
     <option <%=(id == 0) ? "selected" : ""%>  value="0">SELECCIONAR</option>
     <% for (Paciente paciente : pacientes) {%>
-        <option <%=(id == paciente.getId()) ? "selected" : "" %>  value="<%=paciente.getId()%>"><%= paciente.getNombre()%>
-            <%= paciente.getApellido()%><%= paciente.getFechaRegistro()%></option>
+        <option <%=(id == paciente.getId()) ? "selected" : "" %>  value="<%=paciente.getId()%>"><%= paciente.getNombre()%></option>
     <%}%>
 </select>
 <label for="idPaciente">Paciente</label>
