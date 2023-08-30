@@ -54,12 +54,11 @@ public class HistorialDAL {
         int result;
         String sql;
         try (Connection conn = ComunDB.obtenerConexion();) {
-            sql = "UPDATE Historial SET IdPaciente=?, FechaEntrada = ?, DetalleRegistro = ?, WHERE Id=?";
+            sql = "UPDATE Historial SET IdPaciente=?, DetalleRegistro=? WHERE Id=?";
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 ps.setInt(1, pHistorial.getIdPaciente());
-                ps.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
-                ps.setString(3, pHistorial.getDetalleRegistro());
-                ps.setInt(4, pHistorial.getId());
+                ps.setString(2, pHistorial.getDetalleRegistro());
+                ps.setInt(3, pHistorial.getId());
                 result = ps.executeUpdate();
                 ps.close();
             } catch (SQLException ex) {
@@ -197,12 +196,12 @@ public class HistorialDAL {
             }
         }
 
-//        if (pHistorial.getFechaEntrada() != null && pHistorial.getFechaEntrada().trim().isEmpty() == false) {
-//            pUtilQuery.AgregarNumWhere(" h.FechaEntrada LIKE ? "); 
-//            if (statement != null) {
-//                statement.setString(pUtilQuery.getNumWhere(), "%" + pHistorial.getFechaEntrada() + "%"); 
-//            }
-//        }
+////        if (pHistorial.getFechaEntrada() != null && pHistorial.getFechaEntrada().trim().isEmpty() == false) {
+////            pUtilQuery.AgregarNumWhere(" h.FechaEntrada LIKE ? "); 
+////            if (statement != null) {
+////                statement.setString(pUtilQuery.getNumWhere(), "%" + pHistorial.getFechaEntrada() + "%"); 
+////            }
+////        }
         
         if (pHistorial.getDetalleRegistro()!= null && pHistorial.getDetalleRegistro().trim().isEmpty() == false) {
             pUtilQuery.AgregarNumWhere(" h.DetalleRegistro LIKE ? "); 
@@ -251,7 +250,7 @@ public class HistorialDAL {
             sql += ",";
             sql += PacienteDAL.obtenerCampos();
             sql += " FROM Historial h";
-            sql += " JOIN Paciente p on (h.IdPaciente=p.Id)";
+            sql += " JOIN Paciente pa on (h.IdPaciente=pa.Id)";
             ComunDB comundb = new ComunDB();
             ComunDB.utilQuery utilQuery = comundb.new utilQuery(sql, null, 0);
             querySelect(pHistorial, utilQuery);
