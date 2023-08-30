@@ -13,15 +13,15 @@
             <h5>Crear Historial</h5>
             <form action="Historial" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">                
-                <div class="row">
+                <div class="row">                     
                     <div class="input-field col l4 s12">
-                        <input  id="txtFechaEntrada" type="date" name="fechaEntrada" required class="validate" maxlength="50">
-                        <label for="txtFechaEntrada">Nombre</label>
-                    </div>                       
-                    <div class="input-field col l4 s12">
-                        <input  id="txtDetalleRegistro" type="text" name="detalleRegistro" required class="validate" maxlength="30">
-                        <label for="txtDetalleRegistro">Rubro</label>
+                        <input  id="txtDetalleRegistro" type="text" name="detalleRegistro" required class="validate" maxlength="100">
+                        <label for="txtDetalleRegistro">Detalle Registro</label>
                     </div> 
+                    <div class="input-field col l4 s12">
+                        <input  id="txtFechaEntrada" type="date" name="fechaEntrada" required class="validate" maxlength="30">
+                        <label for="txtFechaEntrada">Fecha Entrada</label>
+                    </div>  
                     <div class="input-field col l4 s12">   
                         <jsp:include page="/Views/Paciente/select.jsp">                           
                             <jsp:param name="id" value="0" />  
