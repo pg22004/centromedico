@@ -25,7 +25,6 @@ public class HistorialServlet extends HttpServlet {
         if (accion.equals("create") == false) {
             historial.setId(Integer.parseInt(Utilidad.getParameter(request, "id", "0")));
         }
-        historial.setFechaEntrada(LocalDate.parse(Utilidad.getParameter(request, "fechaEntrada", "")));
         historial.setDetalleRegistro(Utilidad.getParameter(request, "detalleRegistro", ""));
         historial.setIdPaciente(Integer.parseInt(Utilidad.getParameter(request, "idPaciente", "0")));
         
