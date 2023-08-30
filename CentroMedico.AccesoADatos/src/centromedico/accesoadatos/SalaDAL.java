@@ -18,7 +18,7 @@ static String obtenerCampos() {
         return sql;
     }
     private static String agregarOrderBy(Sala pSala) {
-        String sql = " ORDER BY u.Id DESC";
+        String sql = " ORDER BY s.Id DESC";
         if (pSala.getTop_aux() > 0 && ComunDB.TIPODB == ComunDB.TipoDB.MYSQL) {
             sql += " LIMIT " + pSala.getTop_aux() + " ";
         }
@@ -108,7 +108,7 @@ static String obtenerCampos() {
         ArrayList<Sala> salas = new ArrayList();
         try (Connection conn = ComunDB.obtenerConexion();) { 
             String sql = obtenerSelect(pSala);
-            sql += " WHERE c.Id=?";
+            sql += " WHERE s.Id=?";
             try (PreparedStatement ps = ComunDB.createPreparedStatement(conn, sql);) {
                 ps.setInt(1, pSala.getId());
                 obtenerDatos(ps,salas );
