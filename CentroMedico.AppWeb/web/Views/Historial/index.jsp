@@ -36,22 +36,24 @@
                     <div class="input-field col l6 s12">
                         <input  id="txtFechaEntrada" type="date" name="fechaEntrada">
                         <label for="txtFechaEntrada">Fecha Entrada</label>
+                    </div> 
+                    <div class="input-field col l4 s12">   
+                        <jsp:include page="/Views/Paciente/select.jsp">                           
+                            <jsp:param name="id" value="0" />  
+                        </jsp:include>                        
                     </div>
-                    <div class="input-field col l6 s12">
-                        <input  id="txtDetalleRegistro" type="text" name="detalleRegistro">
-                        <label for="txtDetalleRegistro">Detalle Registro</label>
-                    </div>               
                     <div class="input-field col l3 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
                             <jsp:param name="top_aux" value="<%=top_aux%>" />                        
                         </jsp:include>                        
                     </div> 
-                <div class="row">
-                    <div class="col l12 s12">
-                        <button type="sutmit" class="waves-effect waves-light btn blue"><i class="material-icons right">search</i>Buscar</button>
-                        <a href="Historial?accion=create" class="waves-effect waves-light btn blue"><i class="material-icons right">add</i>Crear</a>                          
+                    <div class="row">
+                        <div class="col l12 s12">
+                            <button type="sutmit" class="waves-effect waves-light btn blue"><i class="material-icons right">search</i>Buscar</button>
+                            <a href="Historial?accion=create" class="waves-effect waves-light btn blue"><i class="material-icons right">add</i>Crear</a>                          
+                        </div>
                     </div>
-                </div>
+                 </div>
             </form>
 
             <div class="row">
