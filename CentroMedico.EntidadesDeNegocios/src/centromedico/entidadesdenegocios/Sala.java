@@ -7,18 +7,16 @@ public class Sala {
     private String nombre;
     private int numeroCamas;
     private int top_aux;
-    private ArrayList<Cama> camas;
     private ArrayList<PacienteSala> pacienteSalas;
 
     public Sala() {
     }
 
-    public Sala(int id, String nombre, int numeroCamas, int top_aux, ArrayList<Cama> camas, ArrayList<PacienteSala> pacienteSalas) {
+    public Sala(int id, String nombre, int numeroCamas, int top_aux,  ArrayList<PacienteSala> pacienteSalas) {
         this.id = id;
         this.nombre = nombre;
         this.numeroCamas = numeroCamas;
         this.top_aux = top_aux;
-        this.camas = camas;
         this.pacienteSalas = pacienteSalas;
     }
 
@@ -52,14 +50,6 @@ public class Sala {
 
     public void setTop_aux(int top_aux) {
         this.top_aux = top_aux;
-    }
-
-    public ArrayList<Cama> getCamas() {
-        return camas;
-    }
-
-    public void setCamas(ArrayList<Cama> camas) {
-        this.camas = camas;
     }
 
     public ArrayList<PacienteSala> getPacienteSalas() {
