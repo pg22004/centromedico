@@ -9,17 +9,17 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Editar Rol</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Editar Rol</h5>
+        <main class="contenedor container">   
+            <h3>Editar Rol</h3>
             <form action="Rol" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">   
                 <input type="hidden" name="id" value="<%=rol.getId()%>">   
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre" value="<%=rol.getNombre()%>" required class="validate" maxlength="30">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtNombre" type="text" name="nombre" value="<%=rol.getNombre()%>" required class="validate" maxlength="30">
+                        <label  class="labe" for="txtNombre">Nombre</label>
                     </div>                                       
                 </div>
                 <div class="row">

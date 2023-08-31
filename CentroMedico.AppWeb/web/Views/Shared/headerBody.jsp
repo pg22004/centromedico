@@ -2,36 +2,39 @@
 <%@page import="centromedico.appweb.utils.*"%>
 <%@page import="jakarta.servlet.http.HttpServletRequest"%>
 
-<nav>
-    <div class="nav-wrapper blue">
-        <a href="Home" class="brand-logo">Centro Médico IMECS</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>       
-        <ul class="right hide-on-med-and-down">  
-            <% if (SessionUser.isAuth(request)) {  %>
-            <li><a href="Home">Inicio</a></li>
-            <li><a href="Cama">Cama</a></li>
-            <li><a href="Sala">Sala</a></li>
-            <li><a href="Paciente">Paciente</a></li>
-            <li><a href="Historial">Historial</a></li>
-            <li><a href="Usuario">Usuarios</a></li>
-            <li><a href="Rol">Roles</a></li>
-            <li><a href="Usuario?accion=cambiarpass">Cambiar password</a></li>
-            <li><a href="Usuario?accion=login">Cerrar sesión</a></li>
-            <%}%>
-        </ul>
-    </div>
-</nav>
+<nav class="BarraPrincipal navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container-fluid">
 
-<ul class="sidenav" id="mobile-demo">
-     <% if (SessionUser.isAuth(request)) {  %>
-     <li><a href="Home">Inicio</a></li>
-     <li><a href="Cama">Cama</a></li>
-     <li><a href="Sala">Sala</a></li>
-     <li><a href="Paciente">Paciente</a></li>
-     <li><a href="Historial">Historial</a></li>
-     <li><a href="Usuario">Usuarios</a></li>
-     <li><a href="Rol">Roles</a></li>
-     <li><a href="Usuario?accion=cambiarpass">Cambiar Contraseña</a></li>
-     <li><a href="Usuario?accion=login">Cerrar sesión</a></li>
-     <%}%>
-</ul>
+        <a class="navbar-brand" href="Home">Centro Médico IMECS
+            <img class="logotipo" src="" />
+        </a>
+
+        <button id="menu" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span id="menu" class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <% if (SessionUser.isAuth(request)) {  %>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Home">Inicio</a></li>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Sala">Sala</a></li>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Paciente">Paciente</a></li>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="PacienteSala">Sala del Paciente</a></li>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Historial">Historial</a></li>
+                    <li class="nav-item Itembarra dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Menú
+                        </a>
+                        <ul id="Fonfo" class="dropdown-menu">
+                            <li class="ItembarraInicio"><a id="FonfoItem" class="dropdown-item" href="Usuario">Usuarios</a></li>
+                            <li class="ItembarraInicio"><a id="FonfoItem"  class="dropdown-item" href="Rol">Roles</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="ItembarraInicio"><a id="FonfoItem" class="dropdown-item" href="Usuario?accion=cambiarpass">Cambiar password</a></li>
+                            <li class="ItembarraInicio"><a id="FonfoItem" class="dropdown-item" href="Usuario?accion=login">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</nav>    

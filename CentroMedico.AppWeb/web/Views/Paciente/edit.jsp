@@ -9,21 +9,21 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Editar Paciente</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Editar Paciente</h5>
+        <main class="contenedor container">   
+            <h3>Editar Paciente</h3>
             <form action="Paciente" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">   
                 <input type="hidden" name="id" value="<%=paciente.getId()%>">   
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre" value="<%=paciente.getNombre()%>" required class="validate" maxlength="50">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtNombre" type="text" name="nombre" value="<%=paciente.getNombre()%>" required class="validate" maxlength="50">
+                        <label class="labe"  for="txtNombre">Nombre</label>
                     </div>
-                    <div class="input-field col l4 s12">
-                        <input  id="txtApellido" type="text" name="apellido" value="<%=paciente.getApellido()%>" required class="validate" maxlength="100">
-                        <label for="txtApellido">Apellido</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtApellido" type="text" name="apellido" value="<%=paciente.getApellido()%>" required class="validate" maxlength="100">
+                        <label  class="labe" for="txtApellido">Apellido</label>
                     </div>
                      
                     

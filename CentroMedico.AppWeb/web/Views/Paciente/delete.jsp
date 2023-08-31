@@ -9,21 +9,21 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Eliminar Paciente</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Eliminar Paciente</h5>          
+        <main class="contenedor container">   
+            <h3>Eliminar Paciente</h3>          
             <form action="Paciente" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">   
                 <input type="hidden" name="id" value="<%=paciente.getId()%>">   
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input disabled  id="txtNombre" type="text" value="<%=paciente.getNombre()%>">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" disabled  id="txtNombre" type="text" value="<%=paciente.getNombre()%>">
+                        <label  class="labe" for="txtNombre">Nombre</label>
                     </div>       
-                    <div class="input-field col l4 s12">
-                        <input disabled  id="txtApellido" type="text" value="<%=paciente.getApellido()%>">
-                        <label for="txtApellido">Apellido</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" disabled  id="txtApellido" type="text" value="<%=paciente.getApellido()%>">
+                        <label  class="labe" for="txtApellido">Apellido</label>
                     </div>
                    
                 </div>

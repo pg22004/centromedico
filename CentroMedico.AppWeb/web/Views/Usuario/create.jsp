@@ -7,35 +7,35 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Crear Usuario</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Crear Usuario</h5>
+        <main class="contenedor container">   
+            <h3>Crear Usuario</h3>
             <form action="Usuario" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">                
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre" required class="validate" maxlength="30">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtNombre" type="text" name="nombre" required class="validate" maxlength="30">
+                        <label class="labe"  for="txtNombre">Nombre</label>
                     </div>                       
-                    <div class="input-field col l4 s12">
-                        <input  id="txtApellido" type="text" name="apellido" required class="validate" maxlength="30">
-                        <label for="txtApellido">Apellido</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtApellido" type="text" name="apellido" required class="validate" maxlength="30">
+                        <label class="labe" for="txtApellido">Apellido</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input  id="txtLogin" type="text" name="login" required class="validate" maxlength="25">
-                        <label for="txtLogin">Login</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtLogin" type="text" name="login" required class="validate" maxlength="25">
+                        <label class="labe" for="txtLogin">Login</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input  id="txtPassword" type="password" name="password" required class="validate" minlength="5" maxlength="32">
-                        <label for="txtPassword">Password</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtPassword" type="password" name="password" required class="validate" minlength="5" maxlength="32">
+                        <label class="labe" for="txtPassword">Password</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input  id="txtConfirmPassword_aux" type="password" name="confirmPassword_aux" required class="validate" minlength="5" maxlength="32">
-                        <label for="txtConfirmPassword_aux">Confirmar password</label>
+                    <div class="confirmusuario cajatexto col l4 s12">
+                        <label class="labe labels-icons" for="txtConfirmPassword_aux">Confirmar password</label>
+                        <input class="inpu " id="txtConfirmPassword_aux" type="password" name="confirmPassword_aux" required class="validate" minlength="5" maxlength="32">
                         <span id="txtConfirmPassword_aux_error" style="color:red" class="helper-text"></span>
                     </div> 
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <select id="slEstatus" name="estatus" class="validate">
                             <option value="0">SELECCIONAR</option>
                             <option value="<%=Usuario.EstatusUsuario.ACTIVO%>">ACTIVO</option>
@@ -44,7 +44,7 @@
                         <label for="slEstatus">Estatus</label>
                         <span id="slEstatus_error" style="color:red" class="helper-text"></span>
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Rol/select.jsp">                           
                             <jsp:param name="id" value="0" />  
                         </jsp:include>  

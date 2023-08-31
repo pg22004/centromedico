@@ -8,29 +8,29 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Editar PacienteSala</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Editar Paciente Sala</h5>
+        <main class="contenedor container">   
+            <h3>Editar Paciente Sala</h3>
             <form action="PacienteSala" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <input type="hidden" name="id" value="<%=pacientesala.getId()%>">  
                 <div class="row">
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Paciente/select.jsp">                           
                             <jsp:param name="id" value="<%=pacientesala.getIdPaciente() %>" />  
                         </jsp:include>  
                         <span id="slPaciente_error" style="color:red" class="helper-text"></span>
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Sala/select.jsp">                           
                             <jsp:param name="id" value="<%=pacientesala.getIdSala() %>" />  
                         </jsp:include>  
                         <span id="slSala_error" style="color:red" class="helper-text"></span>
                     </div>
-                    <div class="input-field col l4 s12">
-                        <input  id="txtFechaEntrada" type="date" name="fechaEntrada" value="<%=pacientesala.getFecha()%>" required class="validate" maxlength="50">
-                        <label for="txtFechaEntrada">Fecha Entrada</label>
+                    <div class="cajatexto confirmpacientesala col l4 s12">
+                        <label  class="labe labels-icons" for="txtFechaEntrada">Fecha Entrada</label>
+                        <input  class="inpu"  id="txtFechaEntrada" type="date" name="fechaEntrada" value="<%=pacientesala.getFecha()%>" required class="validate" maxlength="50">
                     </div>  
                 </div>
         

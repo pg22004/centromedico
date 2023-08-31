@@ -8,27 +8,27 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Detalle del Historial</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Detalle del Historial</h5>
+        <main class="contenedor container">   
+            <h3>Detalle del Historial</h3>
              <div class="row">
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtFechaEntrada" type="date" value="<%=historial.getFechaEntrada()%>" disabled>
-                        <label for="txtFechaEntrada">Fecha Entrada</label>
+                    <div class="cajatexto confirmhistorial col l4 s12">
+                        <label class="labe labels-icons" for="txtFechaEntrada">Fecha Entrada</label>
+                        <input  class="inpu"  id="txtFechaEntrada" type="date" value="<%=historial.getFechaEntrada()%>" disabled>
                     </div>                       
-                    <div class="input-field col l4 s12">
-                        <input  id="txtDetalleRegistro" type="text" value="<%=historial.getDetalleRegistro()%>" disabled>
-                        <label for="txtDetalleRegistro">Detalle Registro</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtDetalleRegistro" type="text" value="<%=historial.getDetalleRegistro()%>" disabled>
+                        <label class="labe" for="txtDetalleRegistro">Detalle Registro</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input id="txtPaciente" type="text" value="<%=historial.getPaciente().getNombre()%>" disabled>
-                        <label for="txtPaciente">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" id="txtPaciente" type="text" value="<%=historial.getPaciente().getNombre()%>" disabled>
+                        <label class="labe" for="txtPaciente">Nombre</label>
                     </div> 
-                        <div class="input-field col l4 s12">
-                        <input id="txtPaciente" type="text" value="<%=historial.getPaciente().getApellido()%>" disabled>
-                        <label for="txtPaciente">Apellido</label>
+                        <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu"  id="txtPaciente" type="text" value="<%=historial.getPaciente().getApellido()%>" disabled>
+                        <label class="labe" for="txtPaciente">Apellido</label>
                     </div> 
                 </div>
 

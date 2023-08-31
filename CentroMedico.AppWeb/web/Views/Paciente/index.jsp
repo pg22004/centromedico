@@ -25,23 +25,23 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Lista de Pacientes</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Buscar Paciente</h5>
+        <main class="contenedor container">   
+            <h3>Buscar Paciente</h3>
             <form action="Paciente" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <div class="row">
-                    <div class="input-field col l6 s12">
-                        <input  id="txtNombre" type="text" name="nombre">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l6 s12">
+                        <input  class="inpu"  id="txtNombre" type="text" name="nombre">
+                        <label  class="labe" for="txtNombre">Nombre</label>
                     </div>
-                    <div class="input-field col l6 s12">
-                        <input  id="txtApellido" type="text" name="apellido">
-                        <label for="txtApellido">Apellido</label>
+                    <div class="cajatexto input-field col l6 s12">
+                        <input   class="inpu" id="txtApellido" type="text" name="apellido">
+                        <label  class="labe" for="txtApellido">Apellido</label>
                     </div>
                   
-                    <div class="input-field col l3 s12">   
+                    <div class="cajatexto input-field col l3 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
                             <jsp:param name="top_aux" value="<%=top_aux%>" />                        
                         </jsp:include>                        
@@ -59,7 +59,7 @@
                 <div class="col l12 s12">
                     <div style="overflow: auto">
                         <table class="paginationjs">
-                            <thead>
+                            <thead class="etiqueta">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Apellido</th> 

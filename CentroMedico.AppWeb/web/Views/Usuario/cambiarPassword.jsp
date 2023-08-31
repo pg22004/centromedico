@@ -8,32 +8,32 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Cambiar password</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Cambiar password</h5>
+        <main class="contenedor container">   
+            <h3>Cambiar Contraseña</h3>
             <form action="Usuario" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <input type="hidden" name="id" value="<%=usuario.getId()%>">  
                 <div class="row">                   
-                    <div class="input-field col l4 s12">
-                        <input  id="txtLogin" type="text" name="login" value="<%=usuario.getLogin()%>" readonly>
-                        <label for="txtLogin">Login</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" id="txtLogin" type="text" name="login" value="<%=usuario.getLogin()%>" readonly>
+                        <label class="labe" for="txtLogin">Login</label>
                     </div>  
-                    <div class="input-field col l4 s12">
-                        <input  id="txtPasswordActual" type="password" name="passwordActual" required class="validate" minlength="5" maxlength="32">
-                        <label for="txtPasswordActual">Password actual</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" id="txtPasswordActual" type="password" name="passwordActual" required class="validate" minlength="5" maxlength="32">
+                        <label class="labe" for="txtPasswordActual">Password actual</label>
                     </div> 
                 </div>
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtPassword" type="password" name="password" required class="validate" minlength="5" maxlength="32">
-                        <label for="txtPassword">Password</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" id="txtPassword" type="password" name="password" required class="validate" minlength="5" maxlength="32">
+                        <label class="labe" for="txtPassword">Password</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input  id="txtConfirmPassword_aux" type="password" name="confirmPassword_aux" required class="validate" minlength="5" maxlength="32">
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" id="txtConfirmPassword_aux" type="password" name="confirmPassword_aux" required class="validate" minlength="5" maxlength="32">
                         <label for="txtConfirmPassword_aux">Confirmar password</label>
-                        <span id="txtConfirmPassword_aux_error" style="color:red" class="helper-text"></span>
+                        <span class="labe" id="txtConfirmPassword_aux_error" style="color:red" class="helper-text"></span>
                     </div> 
                 </div>
 

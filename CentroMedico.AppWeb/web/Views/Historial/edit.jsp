@@ -8,29 +8,29 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Editar Historial</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Editar Historial</h5>
+        <main class="contenedor container">   
+            <h3>Editar Historial</h3>
             <form action="Historial" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <input type="hidden" name="id" value="<%=historial.getId()%>">  
-                <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtFechaEntrada" type="date" name="fechaEntrada" value="<%=historial.getFechaEntrada()%>" required class="validate" maxlength="50">
-                        <label for="txtFechaEntrada">Fecha Entrada</label>
-                    </div>                       
-                    <div class="input-field col l4 s12">
-                        <input  id="txtDetalleRegistro" type="text" name="detalleRegistro" value="<%=historial.getDetalleRegistro()%>" required class="validate" maxlength="100">
-                        <label for="txtDetalleRegistro">Detalle Registro</label>
+                <div class="row">                      
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtDetalleRegistro" type="text" name="detalleRegistro" value="<%=historial.getDetalleRegistro()%>" required class="validate" maxlength="100">
+                        <label class="labe" for="txtDetalleRegistro">Detalle Registro</label>
                     </div> 
                     
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Paciente/select.jsp">                           
                             <jsp:param name="id" value="<%=historial.getIdPaciente() %>" />  
                         </jsp:include>  
                         <span id="slContacto_error" style="color:red" class="helper-text"></span>
                     </div>
+                    <div class="cajatexto confirmhistorial col l4 s12">
+                        <label class="labe labels-icons" for="txtFechaEntrada">Fecha Entrada</label>
+                        <input  class="inpu"  id="txtFechaEntrada" type="date" name="fechaEntrada" value="<%=historial.getFechaEntrada()%>" required class="validate" maxlength="50">
+                    </div> 
                 </div>
 
                 <div class="row">

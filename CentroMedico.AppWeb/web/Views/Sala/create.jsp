@@ -6,20 +6,20 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Crear Sala</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Crear Sala</h5>
+        <main class="contenedor container">   
+            <h3>Crear Sala</h3>
             <form action="Sala" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">                
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre" required class="validate" maxlength="30">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtNombre" type="text" name="nombre" required class="validate" maxlength="30">
+                        <label class="labe"  for="txtNombre">Nombre</label>
                     </div>  
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNumeroCamas" type="number" name="numeroCamas" required class="validate" maxlength="30">
-                        <label for="txtNumeroCamas">NumCamas</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtNumeroCamas" type="number" name="numeroCamas" required class="validate" maxlength="30">
+                        <label  class="labe" for="txtNumeroCamas">NumCamas</label>
                     </div>   
                 </div>
                 <div class="row">

@@ -6,16 +6,16 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Crear Rol</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Crear Rol</h5>
+        <main class="contenedor container">   
+            <h3>Crear Rol</h3>
             <form action="Rol" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">                
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre" required class="validate" maxlength="30">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtNombre" type="text" name="nombre" required class="validate" maxlength="30">
+                        <label  class="labe" for="txtNombre">Nombre</label>
                     </div>                                       
                 </div>
                 <div class="row">

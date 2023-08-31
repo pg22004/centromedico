@@ -9,17 +9,17 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Eliminar Rol</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Eliminar Rol</h5>          
+        <main class="contenedor container">   
+            <h3>Eliminar Rol</h3>          
             <form action="Rol" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">   
                 <input type="hidden" name="id" value="<%=rol.getId()%>">   
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                    <input disabled  id="txtNombre" type="text" value="<%=rol.getNombre()%>">
-                    <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                    <input class="inpu"  disabled  id="txtNombre" type="text" value="<%=rol.getNombre()%>">
+                    <label class="labe"  for="txtNombre">Nombre</label>
                 </div>                                        
                 </div>
                 <div class="row">

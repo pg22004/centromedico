@@ -7,21 +7,21 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Crear Paciente Sala</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Crear Paciente Sala</h5>
+        <main class="contenedor container">   
+            <h3>Crear Paciente Sala</h3>
             <form action="PacienteSala" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>">                
                 <div class="row">
                    
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Paciente/select.jsp">                           
                             <jsp:param name="id" value="0" />  
                         </jsp:include>  
                         <span id="slPaciente_error" style="color:red" class="helper-text"></span>
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Sala/select.jsp">                           
                             <jsp:param name="id" value="0" />  
                         </jsp:include>  

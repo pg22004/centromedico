@@ -9,18 +9,18 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Detalles de Sala</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Detalle de Sala</h5>
+        <main class="contenedor container">   
+            <h3>Detalle de Sala</h3>
             <div class="row">
-                <div class="input-field col l4 s12">
-                    <input disabled  id="txtNombre" type="text" value="<%=sala.getNombre()%>">
-                    <label for="txtNombre">Nombre</label>
+                <div class="cajatexto input-field col l4 s12">
+                    <input  class="inpu" disabled  id="txtNombre" type="text" value="<%=sala.getNombre()%>">
+                    <label class="labe"  for="txtNombre">Nombre</label>
                 </div>  
-                     <div class="input-field col l4 s12">
-                    <input disabled  id="txtNumeroCamas" type="text" value="<%=sala.getNumeroCamas()%>">
-                    <label for="txtNumeroCamas">NumeroCamas</label>
+                     <div class="cajatexto input-field col l4 s12">
+                    <input  class="inpu" disabled  id="txtNumeroCamas" type="text" value="<%=sala.getNumeroCamas()%>">
+                    <label class="labe"  for="txtNumeroCamas">NumeroCamas</label>
                 </div>  
             </div>
             <div class="row">

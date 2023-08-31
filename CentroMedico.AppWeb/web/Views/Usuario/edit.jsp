@@ -8,27 +8,27 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Editar Usuario</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Editar Usuario</h5>
+        <main class="contenedor container">   
+            <h3>Editar Usuario</h3>
             <form action="Usuario" method="post" onsubmit="return  validarFormulario()">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <input type="hidden" name="id" value="<%=usuario.getId()%>">  
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre" value="<%=usuario.getNombre()%>" required class="validate" maxlength="30">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtNombre" type="text" name="nombre" value="<%=usuario.getNombre()%>" required class="validate" maxlength="30">
+                        <label class="labe" for="txtNombre">Nombre</label>
                     </div>                       
-                    <div class="input-field col l4 s12">
-                        <input  id="txtApellido" type="text" name="apellido" value="<%=usuario.getApellido()%>" required class="validate" maxlength="30">
-                        <label for="txtApellido">Apellido</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtApellido" type="text" name="apellido" value="<%=usuario.getApellido()%>" required class="validate" maxlength="30">
+                        <label class="labe" for="txtApellido">Apellido</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input  id="txtLogin" type="text" name="login" value="<%=usuario.getLogin()%>" required  class="validate" maxlength="25">
-                        <label for="txtLogin">Login</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input class="inpu" id="txtLogin" type="text" name="login" value="<%=usuario.getLogin()%>" required  class="validate" maxlength="25">
+                        <label class="labe" for="txtLogin">Login</label>
                     </div>                     
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <select id="slEstatus" name="estatus" class="validate">
                             <option value="0" <%=(usuario.getEstatus() == 10) ? "selected" : ""%>>SELECCIONAR</option>
                             <option value="<%=Usuario.EstatusUsuario.ACTIVO%>"  <%=(usuario.getEstatus() == Usuario.EstatusUsuario.ACTIVO) ? "selected" : ""%>>ACTIVO</option>
@@ -37,7 +37,7 @@
                         <label for="slEstatus">Estatus</label>
                         <span id="slEstatus_error" style="color:red" class="helper-text"></span>
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Rol/select.jsp">                           
                             <jsp:param name="id" value="<%=usuario.getIdRol() %>" />  
                         </jsp:include>  

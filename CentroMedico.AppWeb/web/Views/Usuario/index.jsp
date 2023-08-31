@@ -26,26 +26,26 @@
         <title>Lista de Usuarios</title>
 
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Buscar Usuario</h5>
+        <main class="contenedor container">   
+            <h3>Buscar Usuario</h3>
             <form action="Usuario" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtNombre" type="text" name="nombre">
-                        <label for="txtNombre">Nombre</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtNombre" type="text" name="nombre">
+                        <label class="labe" for="txtNombre">Nombre</label>
                     </div>  
-                    <div class="input-field col l4 s12">
-                        <input  id="txtApellido" type="text" name="apellido">
-                        <label for="txtApellido">Apellido</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtApellido" type="text" name="apellido">
+                        <label class="labe" for="txtApellido">Apellido</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input  id="txtLogin" type="text" name="login">
-                        <label for="txtLogin">Login</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input   class="inpu" id="txtLogin" type="text" name="login">
+                        <label  class="labe" for="txtLogin">Login</label>
                     </div>                    
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <select id="slEstatus" name="estatus">
                             <option value="0">SELECCIONAR</option>
                             <option value="<%=Usuario.EstatusUsuario.ACTIVO%>">ACTIVO</option>
@@ -53,12 +53,12 @@
                         </select>       
                         <label for="slEstatus">Estatus</label>
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Rol/select.jsp">                           
                             <jsp:param name="id" value="0" />  
                         </jsp:include>                        
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
                             <jsp:param name="top_aux" value="<%=top_aux%>" />                        
                         </jsp:include>                        
@@ -76,7 +76,7 @@
                 <div class="col l12 s12">
                     <div style="overflow: auto">
                         <table class="paginationjs">
-                            <thead>
+                            <thead class="etiqueta">
                                 <tr>                                     
                                     <th>Nombre</th>  
                                     <th>Apellido</th> 

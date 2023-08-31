@@ -8,31 +8,31 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Eliminar Historial</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Eliminar Historial</h5>
+        <main class="contenedor container">   
+            <h3>Eliminar Historial</h3>
             <form action="Historial" method="post">  
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <input type="hidden" name="id" value="<%=historial.getId()%>">  
                 <div class="row">
-                    <div class="input-field col l4 s12">
-                        <input  id="txtFechaEntrada" type="date" value="<%=historial.getFechaEntrada()%>" disabled>
-                        <label for="txtFechaEntrada">Fecha Entrada</label>
+                    <div class="cajatexto confirmhistorial col l4 s12">
+                        <label class="labe labels-icons" for="txtFechaEntrada">Fecha Entrada</label>
+                        <input  class="inpu"  id="txtFechaEntrada" type="date" value="<%=historial.getFechaEntrada()%>" disabled>
                     </div>                       
-                    <div class="input-field col l4 s12">
-                        <input  id="txtDetalleRegistro" type="text" value="<%=historial.getDetalleRegistro()%>" disabled>
-                        <label for="txtDetalleRegistro">Detalle Registro</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu"  id="txtDetalleRegistro" type="text" value="<%=historial.getDetalleRegistro()%>" disabled>
+                        <label class="labe" for="txtDetalleRegistro">Detalle Registro</label>
                     </div> 
-                    <div class="input-field col l4 s12">
-                        <input id="txtPaciente" type="text" value="<%=historial.getPaciente().getNombre()%>" disabled>
-                        <label for="txtPaciente">Paciente</label>
+                    <div class="cajatexto input-field col l4 s12">
+                        <input  class="inpu" id="txtPaciente" type="text" value="<%=historial.getPaciente().getNombre()%>" disabled>
+                        <label class="labe" for="txtPaciente">Paciente</label>
                     </div> 
                 </div>
                 <div class="row">
                     <div class="col l12 s12">
                         <button type="sutmit" class="waves-effect waves-light btn blue"><i class="material-icons right">delete</i>Eliminar</button>
-                        <a href="Empresa" class="waves-effect waves-light btn blue"><i class="material-icons right">cancel</i>Cancelar</a>                          
+                        <a href="Historial" class="waves-effect waves-light btn blue"><i class="material-icons right">cancel</i>Cancelar</a>                          
                     </div>
                 </div>
             </form>          

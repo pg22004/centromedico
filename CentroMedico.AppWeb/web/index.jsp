@@ -12,13 +12,13 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Principal</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container"> 
+        <main class="contenedor container">  
             <div class="row">
                 <div class="col l12 s12">
                     <h1>Bienvenidos</h1> 
-                    <span>A la ultima innovación de sistemas de base de datos para el Centro Médico IMECS </span> 
+                    <h5>A la ultima innovación de sistemas de base de datos para el Centro Médico IMECS </h5> 
                 </div>
             </div>            
         </main>

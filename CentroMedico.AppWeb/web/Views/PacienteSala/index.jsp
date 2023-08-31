@@ -27,27 +27,27 @@
         <jsp:include page="/Views/Shared/title.jsp" />
         <title>Lista de PacienteSala</title>
     </head>
-    <body>
+    <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
-        <main class="container">   
-            <h5>Buscar Paciente Sala</h5>
+        <main class="contenedor container">   
+            <h3>Buscar Paciente Sala</h3>
             <form action="PacienteSala" method="post">
                 <input type="hidden" name="accion" value="<%=request.getAttribute("accion")%>"> 
                 <div class="row">
                     
                     
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Paciente/select.jsp">                           
                             <jsp:param name="id" value="0" />  
                         </jsp:include>                        
                     </div>
                     
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Sala/select.jsp">                           
                             <jsp:param name="id" value="0" />  
                         </jsp:include>                        
                     </div>
-                    <div class="input-field col l4 s12">   
+                    <div class="cajatexto input-field col l4 s12">   
                         <jsp:include page="/Views/Shared/selectTop.jsp">
                             <jsp:param name="top_aux" value="<%=top_aux%>" />                        
                         </jsp:include>                        
@@ -65,7 +65,7 @@
                 <div class="col l12 s12">
                     <div style="overflow: auto">
                         <table class="paginationjs">
-                            <thead>
+                            <thead class="etiqueta">
                                 <tr>                                     
 
                                     <th>Paciente</th>
