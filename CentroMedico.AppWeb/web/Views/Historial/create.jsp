@@ -5,7 +5,7 @@
 <html>
     <head>
         <jsp:include page="/Views/Shared/title.jsp" />
-        <title>Crear Empresa</title>
+        <title>Crear Historial</title>
     </head>
     <body class="bodys">
         <jsp:include page="/Views/Shared/headerBody.jsp" />  
