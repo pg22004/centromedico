@@ -5,8 +5,8 @@
 <nav class="BarraPrincipal navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
 
-        <a class="navbar-brand" href="Home">Centro Médico IMECS
-            <img class="logotipo" src="" />
+        <a class="navbar-brand" href="Home">Centro Médico
+            <img class="logotipo" src="https://firebasestorage.googleapis.com/v0/b/bruflix-imecs.appspot.com/o/Imagenes_Pelicula%2Flogo.jpg?alt=media&token=c1dd86fe-bd84-4b78-8885-c8a913fdf7d4" />
         </a>
 
         <button id="menu" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
