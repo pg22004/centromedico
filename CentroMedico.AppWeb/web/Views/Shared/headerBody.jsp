@@ -17,10 +17,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <% if (SessionUser.isAuth(request)) {  %>
                     <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Home">Inicio</a></li>
-                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Sala">Sala</a></li>
                     <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Paciente">Paciente</a></li>
-                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="PacienteSala">Sala del Paciente</a></li>
                     <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Historial">Historial</a></li>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="PacienteSala">Sala del Paciente</a></li>
+                    <li class="nav-item ItembarraInicio"><a class="nav-link text-white" href="Sala">Sala</a></li>
                     <li class="nav-item Itembarra dropdown">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Menú
